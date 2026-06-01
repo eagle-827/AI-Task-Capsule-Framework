@@ -1,3 +1,14 @@
+## Problem
+
+AI coding agents often:
+
+- modify unrelated files
+- introduce architecture drift
+- bypass security boundaries
+- create hidden technical debt
+
+AI Task Capsule Framework provides a contract-based execution model that constrains AI agents before implementation begins.
+
 # AI Task Capsule Framework
 
 A governance framework for AI-assisted software development.
