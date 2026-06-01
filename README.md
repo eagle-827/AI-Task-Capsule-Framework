@@ -260,3 +260,14 @@ Pull requests, issues, and discussions are encouraged.
 Released under the MIT License.
 
 See LICENSE for details.
+
+## Examples
+
+The framework includes example implementations for:
+
+- Ecommerce systems
+- CRM systems
+
+See:
+
+examples/
