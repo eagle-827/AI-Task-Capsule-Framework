@@ -1,14 +1,3 @@
-## Problem
-
-AI coding agents often:
-
-- modify unrelated files
-- introduce architecture drift
-- bypass security boundaries
-- create hidden technical debt
-
-AI Task Capsule Framework provides a contract-based execution model that constrains AI agents before implementation begins.
-
 # AI Task Capsule Framework
 
 A governance framework for AI-assisted software development.
@@ -16,9 +5,44 @@ A governance framework for AI-assisted software development.
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
-The AI Task Capsule Framework provides a standardized methodology for constraining autonomous coding agents and LLM-driven development tools. It establishes a contract-based execution model designed to preserve repository integrity and ensure human oversight throughout the software development lifecycle.
+The AI Task Capsule Framework provides a standardized methodology for constraining autonomous coding agents and LLM-driven development tools.
 
-Designed for maintainers who want to use AI coding agents without sacrificing repository safety, architectural consistency, or human oversight.
+It establishes a contract-based execution model designed to preserve repository integrity, reduce architecture drift, and ensure human oversight throughout the software development lifecycle.
+
+Designed for maintainers who want to use AI coding agents without sacrificing repository safety, architectural consistency, or engineering governance.
+
+---
+
+## Problem
+
+AI coding agents often:
+
+* modify unrelated files
+* introduce architecture drift
+* bypass security boundaries
+* create hidden technical debt
+
+AI Task Capsule Framework provides a contract-based execution model that constrains AI agents before implementation begins.
+
+```text
+Problem
+  ↓
+Read Capsule
+  ↓
+Audit
+  ↓
+Human Review
+  ↓
+Write Capsule
+  ↓
+Implementation
+  ↓
+Migration Capsule
+  ↓
+Approval
+  ↓
+Merge
+```
 
 ---
 
@@ -26,20 +50,25 @@ Designed for maintainers who want to use AI coding agents without sacrificing re
 
 Autonomous AI coding agents introduce specific systemic risks to long-lived codebases:
 
-* **Architecture Drift**
-  Agents may prioritize immediate task completion over established architectural patterns, leading to a gradual erosion of system design.
+### Architecture Drift
 
-* **Scope Creep**
-  Without rigid boundaries, AI agents often refactor unrelated files, introducing unexpected side effects.
+Agents may prioritize immediate task completion over established architectural patterns, leading to a gradual erosion of system design.
 
-* **Unsafe Modifications**
-  Direct access to sensitive areas such as database migrations, authentication logic, or environment configurations can lead to data loss or security vulnerabilities.
+### Scope Creep
 
-* **Hidden Technical Debt**
-  Bypassing abstractions or introducing inconsistent dependencies creates maintenance burdens that may only become visible during future audits.
+Without rigid boundaries, AI agents often refactor unrelated files, introducing unexpected side effects.
 
-* **Uncontrolled Autonomy**
-  Modern agents can chain actions together rapidly, making human intervention reactive rather than proactive.
+### Unsafe Modifications
+
+Direct access to sensitive areas such as database migrations, authentication logic, or environment configurations can lead to data loss or security vulnerabilities.
+
+### Hidden Technical Debt
+
+Bypassing abstractions or introducing inconsistent dependencies creates maintenance burdens that may only become visible during future audits.
+
+### Uncontrolled Autonomy
+
+Modern agents can chain actions together rapidly, making human intervention reactive rather than proactive.
 
 This framework provides a lightweight governance layer between human maintainers and AI agents.
 
@@ -49,20 +78,25 @@ This framework provides a lightweight governance layer between human maintainers
 
 The framework is built on five pillars of governance:
 
-1. **Explicit Scope**
-   Every task is confined to a predefined set of allowed files and directories.
+### 1. Explicit Scope
 
-2. **Explicit Permissions**
-   Capabilities such as reading, writing, executing commands, or modifying schemas are granted per task, not per session.
+Every task is confined to a predefined set of allowed files and directories.
 
-3. **Explicit Stop Conditions**
-   Clearly defined scenarios where the agent must halt execution and return control to a human.
+### 2. Explicit Permissions
 
-4. **Human Approval Gates**
-   Critical state transitions require human verification before being committed or applied.
+Capabilities such as reading, writing, executing commands, or modifying schemas are granted per task, not per session.
 
-5. **Risk-Based Execution**
-   Tasks are categorized into risk tiers, determining the level of constraint and the type of Capsule required.
+### 3. Explicit Stop Conditions
+
+Clearly defined scenarios where the agent must halt execution and return control to a human.
+
+### 4. Human Approval Gates
+
+Critical state transitions require human verification before being committed or applied.
+
+### 5. Risk-Based Execution
+
+Tasks are categorized into risk tiers, determining the level of constraint and the type of Capsule required.
 
 ---
 
@@ -147,35 +181,50 @@ Approved changes are merged using the repository's standard review process.
 
 To integrate the framework into a repository:
 
-1. Create a governance directory such as:
+1. Create a governance directory:
 
-   ```text
-   .workbase/
-   ```
+```text
+.workbase/
+```
 
-   or
+or
 
-   ```text
-   .github/ai-governance/
-   ```
+```text
+.github/ai-governance/
+```
 
 2. Assign a Risk Tier using:
 
-   ```text
-   docs/AI-RISK-TIERS.md
-   ```
+```text
+docs/AI-RISK-TIERS.md
+```
 
 3. Select the appropriate Capsule template from:
 
-   ```text
-   templates/
-   ```
+```text
+templates/
+```
 
 4. Complete the Capsule and provide it as the primary instruction to the AI agent.
 
 5. Enforce the Stop Conditions throughout execution.
 
 6. Require human approval before applying high-risk changes.
+
+---
+
+## Examples
+
+The framework includes example implementations for:
+
+* Ecommerce systems
+* CRM systems
+
+See:
+
+```text
+examples/
+```
 
 ---
 
@@ -231,6 +280,11 @@ AI-Task-Capsule-Framework/
 │   ├── AI-RISK-TIERS.md
 │   └── STOP-CONDITIONS.md
 │
+├── examples/
+│   ├── ecommerce/
+│   └── crm/
+│
+├── CONTRIBUTING.md
 ├── LICENSE
 └── README.md
 ```
@@ -249,8 +303,6 @@ Contributions are welcome, including:
 * CI/CD integration examples
 * Repository safety practices
 
-If you have discovered techniques that improve AI reliability, reduce architecture drift, or strengthen repository governance, please consider contributing.
-
 Pull requests, issues, and discussions are encouraged.
 
 ---
@@ -260,14 +312,3 @@ Pull requests, issues, and discussions are encouraged.
 Released under the MIT License.
 
 See LICENSE for details.
-
-## Examples
-
-The framework includes example implementations for:
-
-- Ecommerce systems
-- CRM systems
-
-See:
-
-examples/
